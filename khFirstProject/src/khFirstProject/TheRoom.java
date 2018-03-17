@@ -56,8 +56,9 @@ public class TheRoom {
 			public void actionPerformed(ActionEvent e) {				
 				
 				String firstMessage = JOptionPane.showInputDialog("One");
-				System.out.println(firstMessage);
-				if(firstMessage=="1") {
+				
+				if(firstMessage.equals("1")) {
+					System.out.println(firstMessage);
 					setRightAnswer();
 				}
 				
@@ -71,8 +72,9 @@ public class TheRoom {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				String secondMessage = JOptionPane.showInputDialog("Two");
-				System.out.println(secondMessage);
+				
 				if(secondMessage.equals("2")) {
+					System.out.println(secondMessage);
 					setRightAnswer();
 				}
 				
@@ -88,8 +90,9 @@ public class TheRoom {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				String thirdMessage = JOptionPane.showInputDialog("Three");
-				System.out.println(thirdMessage);
+				
 				if(thirdMessage.equals("3")) {
+					System.out.println(thirdMessage);
 					setRightAnswer();
 				}
 				
