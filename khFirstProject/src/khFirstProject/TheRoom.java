@@ -14,7 +14,7 @@ import javax.swing.JToggleButton;
 
 public class TheRoom {
 	
-	private int rightAnswer = 0;
+	int rightAnswer = 0;
 	JFrame frame;
 	Image imageIcon;
 	JLabel label;
@@ -36,25 +36,21 @@ public class TheRoom {
 		frame.add(label, "Center");
 		
 		// 테이블 위 500 500 100 70
-		btn1 = new JButton(new ImageIcon());
+		btn1 = new JButton(new ImageIcon("CLASH ROYALE ROCKET.jpg"));
 		btn1.setBounds(500, 500, 100, 70);
 		
 		// 오른쪽 의자 위 855 430 100 70
-		btn2 = new JButton(new ImageIcon());
+		btn2 = new JButton(new ImageIcon("CLASH ROYALE ROCKET.jpg"));
 		btn2.setBounds(855, 430, 100, 70);
 		
 		// 책꽂이	545 230 100 70
-		btn3 = new JButton(new ImageIcon());
+		btn3 = new JButton(new ImageIcon("CLASH ROYALE ROCKET.jpg"));
 		btn3.setBounds(545, 230, 100, 70);
 		
 		frame.add(btn1);
 		frame.add(btn2);
 		frame.add(btn3);
 		
-		
-	}
-	
-	public void generatingEvent() {
 		btn1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {				
@@ -103,7 +99,10 @@ public class TheRoom {
 
 		
 		frame.setVisible(true);
+		
+		
 	}
+	
 	
 	public void checked() {
 		if(this.rightAnswer>2) {
