@@ -2,44 +2,116 @@ package khFirstProject;
 
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 
 public class TheRoom {
 	
+	private int rightAnswer = 0;
+	JFrame frame;
+	Image imageIcon;
+	JLabel label;
+	JButton btn1;
+	JButton btn2;
+	JButton btn3;
+	
+	
 	public TheRoom(){
-		JFrame frame = new JFrame("THE ROOM");
+		frame = new JFrame("THE ROOM");
 		frame.setBounds(200, 200, 1280, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
 		
-		Image imageIcon = new ImageIcon("theroom.jpg").getImage().getScaledInstance(1280, 800, 0);
-		JLabel label = new JLabel(new ImageIcon("theroom.jpg"));
+		imageIcon = new ImageIcon("theroom.jpg").getImage().getScaledInstance(1280, 800, 0);
+		label = new JLabel(new ImageIcon("theroom.jpg"));
 		label.setLocation(0, 0);
 		label.setSize(1280, 800);
 		frame.add(label, "Center");
 		
 		// 테이블 위 500 500 100 70
-		JToggleButton btn1 = new JToggleButton(new ImageIcon());
+		btn1 = new JButton(new ImageIcon());
 		btn1.setBounds(500, 500, 100, 70);
 		
 		// 오른쪽 의자 위 855 430 100 70
-		JToggleButton btn2 = new JToggleButton(new ImageIcon());
+		btn2 = new JButton(new ImageIcon());
 		btn2.setBounds(855, 430, 100, 70);
 		
 		// 책꽂이	545 230 100 70
-		JToggleButton btn3 = new JToggleButton(new ImageIcon("CLASH ROYALE ROCKET.jpg"));
+		btn3 = new JButton(new ImageIcon());
 		btn3.setBounds(545, 230, 100, 70);
 		
 		frame.add(btn1);
 		frame.add(btn2);
 		frame.add(btn3);
 		
+		
+	}
+	
+	public void generatingEvent() {
+		btn1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {				
+				
+				String firstMessage = JOptionPane.showInputDialog("One");
+				if(firstMessage.equals("1")) {
+					rightAnswer++;
+				}
+				
+				
+				
+			}
+		});
+		
+		btn2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String secondMessage = JOptionPane.showInputDialog("Two");
+				if(secondMessage.equals("2")) {
+					rightAnswer++;
+				}
+				
+				
+				
+			}
+			
+		});
+		
+		btn3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String thirdMessage = JOptionPane.showInputDialog("Three");
+				if(thirdMessage.equals("3")) {
+					rightAnswer++;
+				}
+				
+				
+				
+			}
+			
+		});
+		
+
+		
 		frame.setVisible(true);
 	}
+	
+	public void checked() {
+		if(this.rightAnswer>2) {
+			JOptionPane.showMessageDialog(frame, "확인 메세지 출력");
+		}
+	}
+
+	
 	
 	
 	
