@@ -18,9 +18,9 @@ public class TheRoom {
 	JFrame frame;
 	Image imageIcon;
 	JLabel label;
-	JButton btn1;
-	JButton btn2;
-	JButton btn3;
+	JToggleButton btn1;
+	JToggleButton btn2;
+	JToggleButton btn3;
 	
 	
 	public TheRoom(){
@@ -36,15 +36,15 @@ public class TheRoom {
 		frame.add(label, "Center");
 		
 		// 테이블 위 500 500 100 70
-		btn1 = new JButton(new ImageIcon("CLASH ROYALE ROCKET.jpg"));
+		btn1 = new JToggleButton(new ImageIcon("CLASH ROYALE ROCKET.jpg"));
 		btn1.setBounds(500, 500, 100, 70);
 		
 		// 오른쪽 의자 위 855 430 100 70
-		btn2 = new JButton(new ImageIcon("CLASH ROYALE ROCKET.jpg"));
+		btn2 = new JToggleButton(new ImageIcon("CLASH ROYALE ROCKET.jpg"));
 		btn2.setBounds(855, 430, 100, 70);
 		
 		// 책꽂이	545 230 100 70
-		btn3 = new JButton(new ImageIcon("CLASH ROYALE ROCKET.jpg"));
+		btn3 = new JToggleButton(new ImageIcon("CLASH ROYALE ROCKET.jpg"));
 		btn3.setBounds(545, 230, 100, 70);
 		
 		frame.add(btn1);
