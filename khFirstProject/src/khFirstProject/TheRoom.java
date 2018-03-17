@@ -56,8 +56,9 @@ public class TheRoom {
 			public void actionPerformed(ActionEvent e) {				
 				
 				String firstMessage = JOptionPane.showInputDialog("One");
-				if(firstMessage.equals("1")) {
-					rightAnswer++;
+				System.out.println(firstMessage);
+				if(firstMessage=="1") {
+					setRightAnswer();
 				}
 				
 				
@@ -70,8 +71,9 @@ public class TheRoom {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				String secondMessage = JOptionPane.showInputDialog("Two");
+				System.out.println(secondMessage);
 				if(secondMessage.equals("2")) {
-					rightAnswer++;
+					setRightAnswer();
 				}
 				
 				
@@ -86,9 +88,11 @@ public class TheRoom {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				String thirdMessage = JOptionPane.showInputDialog("Three");
+				System.out.println(thirdMessage);
 				if(thirdMessage.equals("3")) {
-					rightAnswer++;
+					setRightAnswer();
 				}
+				
 				
 				
 				
@@ -109,6 +113,18 @@ public class TheRoom {
 			JOptionPane.showMessageDialog(frame, "확인 메세지 출력");
 		}
 	}
+
+
+	public int getRightAnswer() {
+		return rightAnswer;
+	}
+
+
+	public void setRightAnswer() {
+		this.rightAnswer += 1;
+	}
+	
+	
 
 	
 	
