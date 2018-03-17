@@ -4,6 +4,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,7 +27,7 @@ import javax.swing.JToggleButton;
 
 import javazoom.jl.player.Player;
 
-public class TheRoom {
+public class TheRoom  {
 
 	int rightAnswer = 0;
 	JFrame frame;
@@ -51,6 +53,8 @@ public class TheRoom {
 		label.setLocation(0, 0);
 		label.setSize(1280, 800);
 		frame.add(label, "Center");
+		
+		
 
 		// 테이블 위 500 500 100 70
 		bim1 = new ImageIcon("btn1.png");
@@ -66,7 +70,17 @@ public class TheRoom {
 		bim3 = new ImageIcon("btn3.png");
 		btn3 = new JToggleButton(bim3);
 		btn3.setBounds(545, 230, 100, 70);
+		
+		MouseProcess mp = new MouseProcess();
+		
+		btn1.addMouseListener(mp);
+		btn1.addMouseMotionListener(mp);
+		btn2.addMouseListener(mp);
+		btn2.addMouseMotionListener(mp);
+		btn3.addMouseListener(mp);
+		btn3.addMouseMotionListener(mp);
 
+		
 		frame.add(btn1);
 		frame.add(btn2);
 		frame.add(btn3);
@@ -149,13 +163,68 @@ public class TheRoom {
 			e.printStackTrace();
 		}
 
+	}
+	
+	
+	
+	
+}
+
+/*
+ * setBorderPainted(false); // 버튼의 테두리 안 보이게 함 setFocusPainted(false); // 버튼에
+ * 마우스를 눌렀을 때 테두리 안 보이게 함 setContentAreaFilled(false); // 버튼의 여백 안 보이게 함
+ */
+
+
+class MouseProcess implements MouseListener, MouseMotionListener{
+
+	@Override
+	public void mouseDragged(java.awt.event.MouseEvent arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseMoved(java.awt.event.MouseEvent arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseClicked(java.awt.event.MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseEntered(java.awt.event.MouseEvent e) {
+	
+		
+		// TODO Auto-generated method stub
+		// 테이블 위 500 500 100 70
+		// 오른쪽 의자 위 855 430 100 70
+		// 책꽂이 545 230 100 70
+		System.out.println("hovering");
+			
+
+	}
+
+	@Override
+	public void mouseExited(java.awt.event.MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mousePressed(java.awt.event.MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseReleased(java.awt.event.MouseEvent e) {
+		// TODO Auto-generated method stub
 
 	}
 
 }
-
-/*
- * setBorderPainted(false); // 버튼의 테두리 안 보이게 함 
- * setFocusPainted(false); // 버튼에 마우스를 눌렀을 때 테두리 안 보이게 함 
- * setContentAreaFilled(false); // 버튼의 여백 안 보이게 함
- */
