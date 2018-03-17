@@ -60,7 +60,9 @@ public class TheRoom {
 				if(firstMessage.equals("1")) {
 					System.out.println(firstMessage);
 					setRightAnswer();
+					checked();
 				}
+
 				
 				
 				
@@ -76,6 +78,7 @@ public class TheRoom {
 				if(secondMessage.equals("2")) {
 					System.out.println(secondMessage);
 					setRightAnswer();
+					checked();
 				}
 				
 				
@@ -94,6 +97,7 @@ public class TheRoom {
 				if(thirdMessage.equals("3")) {
 					System.out.println(thirdMessage);
 					setRightAnswer();
+					checked();
 				}
 				
 				
