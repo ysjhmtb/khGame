@@ -28,7 +28,11 @@ import javax.swing.JTextArea;
 
 
 
+
+
 public class TheRoom extends JFrame {
+	// time
+	JTextArea timeBox = new JTextArea();
 	
 	int rightAnswer = 0;
 	
@@ -58,6 +62,7 @@ public class TheRoom extends JFrame {
 	Cursor mouse;
 	
 	public TheRoom() {
+		
 		// 마우스 커서
 		Toolkit tk = Toolkit.getDefaultToolkit();
 		mouseImg = new ImageIcon("img/cursor.png").getImage();
@@ -84,6 +89,14 @@ public class TheRoom extends JFrame {
 		
 		// 패널 레이아웃 설정
 		background.setLayout(null);
+		
+		// 시계
+		timeBox.setBounds(0,0,100,20);
+		background.add(timeBox);
+		
+		
+		
+		
 		
 		// 텍스트 에어리어 이벤트 : 스위치 버튼 클릭 유도
 		storyConsol.setBounds(280, 585, 742, 232);
@@ -163,7 +176,8 @@ public class TheRoom extends JFrame {
 			clickCnt++;
 			switch(clickCnt) {
 			case 1 :
-				storyConsol.setText(secondStr);
+				storyConsol.setText(secondStr);				
+				
 				break;
 			}
 		}
@@ -252,6 +266,23 @@ public class TheRoom extends JFrame {
 	public void setRightAnswer() {
 		this.rightAnswer += 1;
 	}
+	
+	public void flowtime(JTextArea timeBox, int sec){
+		Stopwatch sw = new Stopwatch();
+		for(int i=sec;i>0;i--){
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			timeBox.setText(sw.secToHHMMSS(i));
+		}
+		
+	}
+	
+	
+	
 	
 		
 

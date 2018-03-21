@@ -25,7 +25,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 
-import javazoom.jl.player.Player;
 
 public class TheRoom  {
 
