@@ -16,7 +16,7 @@ public class Run {
 		
 		Runnable task1 = ()->{
 			
-			start.setTitle("서재");
+			start.setTitle("THE ROOM");
 			start.setLocation(300, 130);
 			start.setSize(1280, 800);
 			start.setResizable(false);

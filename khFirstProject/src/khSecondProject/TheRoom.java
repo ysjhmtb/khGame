@@ -21,18 +21,23 @@ import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-
-
-
-
 public class TheRoom extends JFrame {
 	// time
 	JTextArea timeBox = new JTextArea();
+	Font commonFont = new Font("맑은 고딕", Font.BOLD, 15);
+	
+	// hint frame
+	JFrame hintframe;
+	// hint label
+	JLabel hintlabel;
+	Image hintimg;
+
 	
 	int rightAnswer = 0;
 	
@@ -91,7 +96,8 @@ public class TheRoom extends JFrame {
 		background.setLayout(null);
 		
 		// 시계
-		timeBox.setBounds(0,0,100,20);
+		timeBox.setBounds(0,0,70,20);
+		timeBox.setFont(commonFont);
 		background.add(timeBox);
 		
 		
@@ -126,9 +132,22 @@ public class TheRoom extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String tableMessage = JOptionPane.showInputDialog("1 1 2 ( ) 5 8");
+				
+				
+				JFrame tqframe = new JFrame();
+				tqframe.setTitle("RUNE");
+				tqframe.setBounds(10,10,900,604);
+				tqframe.setResizable(false);
+				JLabel runelabel = new JLabel();
+				Image runeimg = new ImageIcon("img/runequiz.jpg").getImage();
+				runelabel.setIcon(new ImageIcon(runeimg));
+				runelabel.setLocation(0,0);
+				tqframe.add(runelabel);
+				tqframe.setVisible(true);
 
-				if (tableMessage.equals("3")) {
+				String tableMessage = JOptionPane.showInputDialog("그림 속에 있는 ?에 들어갈 숫자는?");
+				
+				if (tableMessage.equals("13")) {
 					System.out.println("checked");
 					setRightAnswer();
 					checked();
@@ -153,8 +172,8 @@ public class TheRoom extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String bookcaseMessage = JOptionPane.showInputDialog("경기에서 한 주자가 2위에 있는 사람을 제쳤다. 이 주자는 이제 몇 위일까?");
-				if(bookcaseMessage.equals("2")) {
+				String bookcaseMessage = JOptionPane.showInputDialog("검어졌다, 붉어졌다, 희어지는것은?");
+				if(bookcaseMessage.equals("숯")) { 
 					System.out.println("checked");
 					setRightAnswer();
 					checked();
@@ -166,6 +185,70 @@ public class TheRoom extends JFrame {
 		background.add(bookcaseBtn);
 		
 		
+		// hint 
+		ImageIcon hint = new ImageIcon("img/hint.png");
+		JButton hintBtn = new JButton(hint);
+		hintBtn.setBounds(1100, 100, hint.getIconWidth(), hint.getIconHeight());
+		hintBtn.setBorderPainted(false);
+		hintBtn.addMouseListener(new SwitchAction());
+		hintBtn.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+				JButton btn1inhint = new JButton("TABLE");
+				btn1inhint.setBounds(45, 130, 80, 35);
+				btn1inhint.addActionListener(new ActionListener(){
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						JOptionPane.showMessageDialog(null, "13 21 34 55 89 ");
+					}
+					
+				});
+				
+				JButton btn2inhint = new JButton("BOOK");
+				btn2inhint.setBounds(230, 130, 80, 35);
+				btn2inhint.addActionListener(new ActionListener(){
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						JOptionPane.showMessageDialog(null, "C4 ");
+					}
+					
+				});
+		
+				
+				hintframe = new JFrame();
+				hintframe.setTitle("Hint");
+		
+				hintframe.setBounds(1050,210,350,221);
+				hintframe.setResizable(false);
+//				hintframe.setUndecorated(true);
+
+				hintlabel = new JLabel();
+				hintimg = new ImageIcon("img/fibonacci_hint.jpg").getImage();
+				hintlabel.setIcon(new ImageIcon(hintimg));
+				hintlabel.setLocation(0,0);
+				hintframe.add(hintlabel);
+				
+				hintlabel.add(btn1inhint);
+				hintlabel.add(btn2inhint);
+
+				hintframe.setVisible(true);
+				
+				
+				
+
+				
+			}
+		});
+		
+		background.add(hintBtn);
+			
 		
 	}
 	

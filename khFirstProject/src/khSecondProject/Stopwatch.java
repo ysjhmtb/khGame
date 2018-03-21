@@ -17,10 +17,11 @@ public class Stopwatch {
     }
 	
 
-	public static void main(String[] args){
+	public static void main(String[] args) throws InterruptedException{
 		Stopwatch sw = new Stopwatch();
 		int sec = 600;
 		while(sec>0){
+			Thread.sleep(1000);
 			System.out.println(sw.secToHHMMSS(sec));
 			sec--;
 		}

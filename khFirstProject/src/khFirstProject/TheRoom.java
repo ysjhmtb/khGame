@@ -154,10 +154,10 @@ public class TheRoom  {
 	public static void playingMusic(String file) {
 
 		try {
-			String path = file;
-			Player p = new Player(new FileInputStream(path));
-			p.play();
-			p.close();
+//			String path = file;
+//			Player p = new Player(new FileInputStream(path));
+//			p.play();
+//			p.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
