@@ -1,9 +1,18 @@
 package khSecondProject;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 public class Stopwatch {
 	String timerBuffer;
 //	int oldTime = (int)System.currentTimeMillis()/1000;
 //	int secs = (int) System.currentTimeMillis() / 1000 - oldTime;
+
 	
 	public String secToHHMMSS(int secs) {
         int hour, min, sec;
@@ -16,16 +25,41 @@ public class Stopwatch {
         return timerBuffer;
     }
 	
+	public void timeover() {
+		 Image img;
+		 JFrame tempFrame = new JFrame();
 
-	public static void main(String[] args) throws InterruptedException{
-		Stopwatch sw = new Stopwatch();
-		int sec = 600;
-		while(sec>0){
-			Thread.sleep(1000);
-			System.out.println(sw.secToHHMMSS(sec));
-			sec--;
-		}
-		
-	}
+	      Toolkit tk = Toolkit.getDefaultToolkit();
+	      img = tk.getImage("img/timeovermid.gif");
 
+	      JPanel background = new JPanel() {
+	         public void paint(Graphics g) {
+	            if (img == null)
+	               return;
+
+	            g.drawImage(img, 0, 0, tempFrame);
+	            setOpaque(false);
+	            super.paintComponent(g);
+	         }
+
+	      };
+	      tempFrame.add(background);
+	      JScrollPane scrollPane = new JScrollPane(background);
+	      tempFrame.add(scrollPane);
+
+	      tempFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	      
+	      // 300 130
+	      tempFrame.setLocation(300, 130);			
+	      tempFrame.setSize(960, 600);
+
+	      tempFrame.setLocationRelativeTo(null);
+	      tempFrame.setResizable(false);
+	      tempFrame.setAlwaysOnTop(true);
+	      tempFrame.setVisible(true);
+
+	   }
+	
+	
+	
 }
