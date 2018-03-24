@@ -20,7 +20,7 @@ public class Stopwatch {
 	}
 	
 	public int getFlowedTime() {
-		return flowedTime;
+		return (600-flowedTime);
 	}
 
 	
