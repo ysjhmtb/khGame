@@ -32,7 +32,7 @@ public class TheRoom extends JFrame {
 
 	
 	// time
-	JTextArea timeBox = new JTextArea();
+	public JTextArea timeBox = new JTextArea();
 	Font commonFont = new Font("맑은 고딕", Font.BOLD, 15);
 	
 	// hint frame
@@ -349,6 +349,9 @@ public class TheRoom extends JFrame {
 		JButton hintBtn = new JButton(hint);
 		hintBtn.setBounds(1100, 100, hint.getIconWidth(), hint.getIconHeight());
 		hintBtn.setBorderPainted(false);
+		hintBtn.setContentAreaFilled(false);
+		hintBtn.setFocusPainted(false);
+		hintBtn.setOpaque(false);
 		hintBtn.addMouseListener(new SwitchAction());
 		hintBtn.addActionListener(new ActionListener(){
 
