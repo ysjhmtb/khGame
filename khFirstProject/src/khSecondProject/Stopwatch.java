@@ -10,8 +10,18 @@ import javax.swing.JScrollPane;
 
 public class Stopwatch {
 	String timerBuffer;
+	int flowedTime = 0;
+	
 //	int oldTime = (int)System.currentTimeMillis()/1000;
 //	int secs = (int) System.currentTimeMillis() / 1000 - oldTime;
+	
+	public void measureFlowed() {
+		flowedTime++;
+	}
+	
+	public int getFlowedTime() {
+		return flowedTime;
+	}
 
 	
 	public String secToHHMMSS(int secs) {

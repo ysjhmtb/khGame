@@ -515,6 +515,8 @@ public class TheRoom extends JFrame {
 	public void flowtime(JTextArea timeBox, int sec){
 		Stopwatch sw = new Stopwatch();
 		for(int i=sec;i>=0;i--){
+			sw.measureFlowed();
+			System.out.println(sw.getFlowedTime());
 			
 			
 			try {
